@@ -127,12 +127,12 @@ declare namespace wx {
   function stopVoice(): void
 
   // 音乐播放控制   1.2.0 版本开始，本接口不再维护。建议使用能力更强的 wx.getBackgroundAudioManager 接口
-  function getBackgroundAudioPlayerState(ooo: {
+  function getBackgroundAudioPlayerState(object: {
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void
-  function playBackgroundAudio(ooo: {
+  function playBackgroundAudio(object: {
     dataUrl: string,
     title?: string,
     coverImgUrl?: string,
@@ -141,7 +141,7 @@ declare namespace wx {
     complete?: Function
   }): void
   function pauseBackgroundAudio(): void
-  function seekBackgroundAudio(ooo: {
+  function seekBackgroundAudio(object: {
     position: number,
     success?: Function,
     fail?: Function,
@@ -160,7 +160,7 @@ declare namespace wx {
   function createInnerAudioContext(): InnerAudioContext // wx.createAudioContext 升级版。
 
   // 视频
-  function chosseVideo(ooo: {
+  function chosseVideo(object: {
     sourceType?: string[],
     compressed?: boolean,
     maxDuration?: number,
@@ -169,7 +169,7 @@ declare namespace wx {
     fail?: Function,
     complete?: Function
   }): void
-  function saveVideoToPhotosAlbum(ooo: {
+  function saveVideoToPhotosAlbum(object: {
     filePath: string,
     success?: Function,
     fail?: Function,
@@ -188,30 +188,37 @@ declare namespace wx {
   /**
    * 文件
    */
-  function saveFile(ooo:{
+  function saveFile(object:{
     tempFilePath: string,
     success?: Function,
     fail?: Function,
     complete?: Function    
   }):void
-  function getSavedFileList(ooo:{
+  function getFileInfo(object:{
+    filePath:string,
+    digestAlgorithm?:string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  })
+  function getSavedFileList(object:{
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void
-  function getSavedFileInfo(ooo:{
+  function getSavedFileInfo(object:{
     filePath:string,
     success?: Function,
     fail?: Function,
     complete?: Function
   }):void
-  function removeSavedFile(ooo:{
+  function removeSavedFile(object:{
     filePath:string,
     success?: Function,
     fail?: Function,
     complete?: Function
   }):void
-  function openDocument(ooo:{
+  function openDocument(object:{
     filePath:string,
     fileTyp?:string
     success?: Function,
@@ -233,13 +240,13 @@ interface DownloadTask {
   abort: Function;
 }
 interface SocketTask { 
-  send(ooo:{
+  send(object:{
     data:string|ArrayBuffer,
     success?: Function,
     fail?: Function,
     complete?: Function
   }):void;
-  close(ooo:{
+  close(object:{
     code?:number,
     reason?:string,
     success?: Function,
@@ -340,19 +347,19 @@ interface VideoContext {
   exiteFullScreen(): void;
 }
 interface CameraContext {
-  takePhoto(ooo: {
+  takePhoto(object: {
     quality?: string,
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void;
-  shartRecord(ooo: {
+  shartRecord(object: {
     timeoutCallback?: string,
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void;
-  stopRecord(ooo: {
+  stopRecord(object: {
     quality?: string,
     success?: Function,
     fail?: Function,
@@ -360,28 +367,28 @@ interface CameraContext {
   }): void;
 }
 interface LivePlayerContext {
-  play(ooo: {
+  play(object: {
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void;
-  stop(ooo: {
+  stop(object: {
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void;
-  mute(ooo: {
+  mute(object: {
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void;
-  requestFullScreen(ooo: {
+  requestFullScreen(object: {
     direction?: number,
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void;
-  exitFullScreen(ooo: {
+  exitFullScreen(object: {
     success?: Function,
     fail?: Function,
     complete?: Function
