@@ -188,43 +188,81 @@ declare namespace wx {
   /**
    * 文件
    */
-  function saveFile(object:{
+  function saveFile(object: {
     tempFilePath: string,
-    success?: Function,
-    fail?: Function,
-    complete?: Function    
-  }):void
-  function getFileInfo(object:{
-    filePath:string,
-    digestAlgorithm?:string,
-    success?: Function,
-    fail?: Function,
-    complete?: Function
-  })
-  function getSavedFileList(object:{
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void
-  function getSavedFileInfo(object:{
-    filePath:string,
+  function getFileInfo(object: {
+    filePath: string,
+    digestAlgorithm?: string,
     success?: Function,
     fail?: Function,
     complete?: Function
-  }):void
-  function removeSavedFile(object:{
-    filePath:string,
+  })
+  function getSavedFileList(object: {
     success?: Function,
     fail?: Function,
     complete?: Function
-  }):void
-  function openDocument(object:{
-    filePath:string,
-    fileTyp?:string
+  }): void
+  function getSavedFileInfo(object: {
+    filePath: string,
     success?: Function,
     fail?: Function,
     complete?: Function
-  }):void
+  }): void
+  function removeSavedFile(object: {
+    filePath: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function openDocument(object: {
+    filePath: string,
+    fileTyp?: string
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  /**
+   * 数据缓存
+   */
+  function setStorage(object: {
+    key: string,
+    data: object | string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function setStorageSync(key: string, data: object | string): void
+  function getStorage(object: {
+    key: string,
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function getStorageSync(key: string): object | string
+  function getStorageInfo(object: {
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function getStorageInfoSync(): {
+    keys: string[],
+    currentSize: number,
+    limitSize: number
+  }
+  function removeStorage(object: {
+    key: string,
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function removeStorageSync(key: string): void
+  function clearStorage(): void
+  function clearStorageSync(): void
 }
 
 type Method = 'GET' | 'POST' | 'PUT' | 'OPTIONS' | 'HEAD' | 'DELETE' | 'TRACE' | 'CONNECT';
@@ -235,28 +273,28 @@ interface UploadTask {
   onProgressUpdate(callback: Function): void;
   abort: Function;
 }
-interface DownloadTask { 
+interface DownloadTask {
   onProgressUpdate(callback: Function): void;
   abort: Function;
 }
-interface SocketTask { 
-  send(object:{
-    data:string|ArrayBuffer,
+interface SocketTask {
+  send(object: {
+    data: string | ArrayBuffer,
     success?: Function,
     fail?: Function,
     complete?: Function
-  }):void;
-  close(object:{
-    code?:number,
-    reason?:string,
+  }): void;
+  close(object: {
+    code?: number,
+    reason?: string,
     success?: Function,
     fail?: Function,
     complete?: Function
   })
-  onOpen(callback):void,
-  onClose(callback):void,
-  onError(callback):void,
-  onMessage(callback):void
+  onOpen(callback): void,
+  onClose(callback): void,
+  onError(callback): void,
+  onMessage(callback): void
 }
 interface RecordManager {
   start(options: StartOptions): void;
