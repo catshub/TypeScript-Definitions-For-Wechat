@@ -180,10 +180,11 @@ declare namespace wx {
   function createVideoContext(videoId: string, that?: object): VideoContext
 
   // 相机组件控制
-  function createCameraContext(that: object): CameraContext
+  function createCameraContext(that?: object): CameraContext
 
   // 实时音视频
-  function createLivePlayerContext(domId: string, that: object): LivePlayerContext
+  function createLivePlayerContext(domId: string, that?: object): LivePlayerContext
+  function createLivePusherContext(that?: object): LivePusherContext
 
   /**
    * 文件
@@ -427,6 +428,34 @@ interface LivePlayerContext {
     complete?: Function
   }): void;
   exitFullScreen(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void;
+}
+interface LivePusherContext {
+  start(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void;
+  stop(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void;
+  pause(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void;
+  resume(object: {
+    direction?: number,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void;
+  switchCamera(object: {
     success?: Function,
     fail?: Function,
     complete?: Function
