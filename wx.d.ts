@@ -264,6 +264,36 @@ declare namespace wx {
   function removeStorageSync(key: string): void
   function clearStorage(): void
   function clearStorageSync(): void
+
+  /**
+   * 位置
+   */
+  // 获取位置
+  function getLocation(object: {
+    type?: string,
+    altitude?: boolean,
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function chooseLocation(object: {
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  // 查看位置
+  function openLocation(object: {
+    latitude: number,
+    longitude: number,
+    scale?: number,
+    name?: string,
+    address?: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  // 地图组件控制
+  function createMapContext(mapId, that?: object): MapContext
 }
 
 type Method = 'GET' | 'POST' | 'PUT' | 'OPTIONS' | 'HEAD' | 'DELETE' | 'TRACE' | 'CONNECT';
@@ -460,4 +490,35 @@ interface LivePusherContext {
     fail?: Function,
     complete?: Function
   }): void;
+}
+interface MapContext {
+  getCenterLocation(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void;
+  moveToLocation(): void;
+  translateMarker(object: {
+    markerId: number,
+    destination: object,
+    autoRotate: boolean,
+    rotate: number,
+    duration?: number,
+    animationEnd?: Function,
+    fail?: Function
+  }): void
+  includePoints(object: {
+    points: object[],
+    padding?: number[]
+  }): void;
+  getRegion(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void;
+  getScale(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
 }
