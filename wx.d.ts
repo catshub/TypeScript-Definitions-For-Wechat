@@ -184,6 +184,40 @@ declare namespace wx {
 
   // 实时音视频
   function createLivePlayerContext(domId: string, that: object): LivePlayerContext
+
+  /**
+   * 文件
+   */
+  function saveFile(ooo:{
+    tempFilePath: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function    
+  }):void
+  function getSavedFileList(ooo:{
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function getSavedFileInfo(ooo:{
+    filePath:string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }):void
+  function removeSavedFile(ooo:{
+    filePath:string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }):void
+  function openDocument(ooo:{
+    filePath:string,
+    fileTyp?:string
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }):void
 }
 
 type Method = 'GET' | 'POST' | 'PUT' | 'OPTIONS' | 'HEAD' | 'DELETE' | 'TRACE' | 'CONNECT';
