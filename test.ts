@@ -49,3 +49,5 @@ const aaa = wx.getRecorderManager()
 aaa.onStop(()=>{})
 wx.createAudioContext('sdsd').pause()
 wx.createCameraContext({}).stopRecord({})
+wx.getStorageInfoSync().currentSize
+wx.openLocation({latitude:12.0,longitude:12,scale:132})

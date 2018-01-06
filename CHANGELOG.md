@@ -1,14 +1,33 @@
-# Version [](//compare/v0.0.1...v) (2018-01-05)
+<a name=""></a>
+# [](/compare/v0.0.2...v) (2018-01-06)
 
 
 
+<a name="0.0.2"></a>
+## [0.0.2](/compare/v0.0.1...v0.0.2) (2018-01-06)
 
-## Version [0.0.1](//compare/b207a9e...v0.0.1) (2018-01-05)
+
+### Bug Fixes
+
+* **file:** 'ooo' & getFileInfo 33a7472
+* **media:** add livePusher dc388a3
 
 
-### feat
+### Features
 
-* wx.d.ts b207a9e (XiongQi)
+* file 8653309
+* location d0465d2
+* storage be33ec3
+
+
+
+<a name="0.0.1"></a>
+## [0.0.1](/compare/b207a9e...v0.0.1) (2018-01-05)
+
+
+### Features
+
+* wx.d.ts b207a9e
 
 
 
