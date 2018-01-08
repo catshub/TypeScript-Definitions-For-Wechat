@@ -643,6 +643,16 @@ declare namespace wx {
     complete?: Function
   })
   function getExtConfigSync(): object
+
+  /**
+   * 调试接口
+   */
+  function setEnableDebug(object: {
+    enableDebug: boolean,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  })
 }
 /* namespace wx */
 
