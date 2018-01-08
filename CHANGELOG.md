@@ -1,5 +1,23 @@
 <a name=""></a>
-# [](/compare/v0.0.2...v) (2018-01-06)
+# [](/compare/v0.0.3...v) (2018-01-08)
+
+
+
+<a name="0.0.3"></a>
+## [0.0.3](/compare/v0.0.2...v0.0.3) (2018-01-08)
+
+
+### Bug Fixes
+
+* **callback:** type Function 8608b50
+
+
+### Features
+
+* device 8d162b2
+* WXML Node Info a3a9ccb
+* 第三方平台 d32067b
+* 调试接口 f751d02
 
 
 
