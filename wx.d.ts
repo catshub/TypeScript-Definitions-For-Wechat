@@ -635,6 +635,147 @@ declare namespace wx {
   function createSelectorQuery(): SelectorQuery
 
   /**
+   * 界面
+   */
+  // 交互反馈
+  function showToast(object: {
+    title: string,
+    icon?: string,
+    image?: string,
+    duration?: number,
+    mask?: boolean,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function showLoading(object: {
+    title: string,
+    mask?: boolean,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function hideToast(): void
+  function hideLoading(): void
+  function showModal(object: {
+    title: string,
+    content: string,
+    showCancel?: boolean,
+    cancelText?: string,
+    cancelColor?: string,
+    confirmText?: string,
+    confirmColor?: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function showActionSheet(object: {
+    itemList: string[],
+    itemColor?: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 设置导航条
+  function setNavigationBarTitle(object: {
+    title: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function showNavigationBarLoading(): void
+  function hideNavigationBarLoading(): void
+  function setNavigationBarColor(object: {
+    frontColor: string,
+    backgroundColor: string,
+    animation?: {
+      duration?: number,
+      timingFunc?: TimingFunc
+    },
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 设置置顶信息
+  function setTopBarText(object: {
+    text: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 导航
+  function navigateTo(object: {
+    url: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function redirectTo(object: {
+    url: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function switchTab(object: {
+    url: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function navigateBack(object?: {
+    dalta?: number
+  }): void
+  function reLaunch(object: {
+    url: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 动画
+  function createAnimation(object?: {
+    duration?: number,
+    timingFunction?: TimingFunction,
+    delay?: number,
+    transformOrigin?: string
+  }): void
+
+  // 位置
+  function pageScrollTo(object: {
+    scrollTop: number
+  }): void
+
+  // 绘图
+  function createCanvasContext(canvasId: string, that?: object): CanvasContext
+  function createContext(): CanvasContext // 不推荐使用
+  function drawCanvas(canvasId: string, actions: any[], reserve?: boolean): void // 不推荐使用
+  function canvasToTempFilePath(ooo: {
+    x?: number,
+    y?: number,
+    width?: number,
+    height?: number,
+    destWidth?: number,
+    destHeight?: number,
+    canvasId: string,
+    fileType?: 'jpg' | 'png',
+    quality?: number,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): string
+
+  // 下拉刷新
+  function startPullDownRefresh(object?: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function stopPullDownRefresh(): void
+
+  /**
    * 开放接口
    */
   // 登录
@@ -814,6 +955,8 @@ declare namespace wx {
 type Method = 'GET' | 'POST' | 'PUT' | 'OPTIONS' | 'HEAD' | 'DELETE' | 'TRACE' | 'CONNECT';
 type AuthorizeScope = 'scope.userInfo' | 'scope.userLocation' | 'scope.address' | 'scope.invoiceTitle' | 'scope.werun' | 'scope.record' | 'scope.writePhotosAlbum' | 'scope.camera';
 type AuthMode = 'fingerPrint' | 'facial' | 'speech';
+type TimingFunc = 'linear' | 'easeIn' | 'easeOut' | 'easeInOut';
+type TimingFunction = 'linear' | 'ease' | 'ease-in' | 'ease-out' | 'ease-in-out' | 'ease-out' | 'step-start' | 'step-end';
 
 interface RequestTask {
   abort: Function
@@ -1083,4 +1226,97 @@ interface CardAdd extends Card {
 }
 interface CardOpen extends Card {
   code: string;
+}
+interface Animation {
+  /* 样式 */
+  opacity(value: number): Animation
+  backgroundColor(color: string): Animation
+  width(length: number | string): Animation
+  height(length: number | string): Animation
+  top(length: number | string): Animation
+  left(length: number | string): Animation
+  bottom(length: number | string): Animation
+  right(length: number | string): Animation
+  /* 旋转 */
+  rotate(deg: number): Animation
+  rotateX(deg: number): Animation
+  rotateY(deg: number): Animation
+  rotateZ(deg: number): Animation
+  rotate3d(x: number, y: number, z: number, deg: number): Animation
+  /* 缩放 */
+  scale(sx: number, sy?: number): Animation
+  scaleX(sx: number): Animation
+  scaleY(sy: number): Animation
+  scaleZ(sz: number): Animation
+  scale3d(sx: number, sy: number, sz: number): Animation
+  /* 偏移 */
+  translate(tx: number, ty?: number): Animation
+  translateX(tx: number): Animation
+  translateY(ty: number): Animation
+  translateZ(tz: number): Animation
+  translate3d(tx: number, ty: number, tz: number): Animation
+  /* 倾斜 */
+  skew(ax: number, ay?: number): Animation
+  skewX(ax: number): Animation
+  skewY(ay: number): Animation
+  /* 矩阵变形 */
+  matrix(a: number, b: number, c: number, d: number, tx: number, ty: number): Animation
+  matrix3d(a1: number, b1: number, c1: number, d1: number, a2: number, b2: number, c2: number, d2: number, a3: number, b3: number, c3: number, d3: number, a4: number, b4: number, c4: number, d4: number): Animation
+  /* 其他 */
+  step(object?: object): Animation
+  export(): { actions: object[], [propName: string]: any }
+}
+interface CanvasContext {
+  /* 颜色，样式，阴影 */
+  setFillStyle(color: string): void;
+  setStrokeStyle(color: string): void;
+  setShadow(offsetX: number, offsetY: number, blur: number, color: string): void
+  /* 渐变 */
+  createLinearGradient(x0: number, y0: number, x1: number, y1: number): GradientContext
+  createCircularGradient(x: number, y: number, r: number): GradientContext
+  /* 线条样式 */
+  setLineWidth(lineWidth: number): void
+  setLineCap(lineCap: 'butt' | 'round' | 'square'): void
+  setLineJoin(lineJoin: 'bevel' | 'round' | 'miter'): void
+  setLineDash(pattern: number[], offset: number): void
+  setMiterLimit(miterLimit: number): void
+  /* 矩形 */
+  rect(x: number, y: number, width: number, height: number): void
+  fillRect(x: number, y: number, width: number, height: number): void
+  strokeRect(x: number, y: number, width: number, height: number): void
+  clearRect(x: number, y: number, width: number, height: number): void
+  /* 路径 */
+  fill(): void
+  stroke(): void
+  beginPath(): void
+  closePath(): void
+  moveTo(x: number, y: number): void
+  lineTo(x: number, y: number): void
+  arc(x: number, y: number, r: number, sAngle: number, eAngle: number, counterclockwise?: boolean): void
+  quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void
+  bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void
+  /* 变形 */
+  scale(scaleWidth: number, scaleHeight: number): void
+  rotate(rotate: number): void
+  translate(x: number, y: number): void
+  /* 文字 */
+  fillText(text: string, x: number, y: number): void
+  setFontSize(fontSize: number): void
+  setTextBaseline(textBaseline: string): void
+  setTextAlign(align: string): void
+  /* 图片 */
+  drawImage(imageResource: string, x: number, y: number, width: number, height: number): void
+  /* 混合 */
+  setGlobalAlpha(alpha: number): void
+  /* 其他 */
+  clip(): void
+  save(): void
+  restroe(): void
+  draw(reserve?: boolean, callback?: Function): void
+  getActions(...params: any[]): any // 不推荐使用
+  clearActions(...params: any[]): any // 不推荐使用
+}
+interface GradientContext {
+  [propName: string]: any;
+  addColorStop(stop: number, color: string): void
 }
