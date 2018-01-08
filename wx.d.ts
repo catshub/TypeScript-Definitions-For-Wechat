@@ -655,10 +655,10 @@ interface SocketTask {
     fail?: Function,
     complete?: Function
   })
-  onOpen(callback): void,
-  onClose(callback): void,
-  onError(callback): void,
-  onMessage(callback): void
+  onOpen(callback: Function): void,
+  onClose(callback: Function): void,
+  onError(callback: Function): void,
+  onMessage(callback: Function): void
 }
 interface RecordManager {
   start(options: StartOptions): void;
@@ -696,16 +696,16 @@ interface BackgroundAudioManager {
   pause(): void;
   stop(): void;
   seek(position: number): void;
-  onCanplay(callback): void;
-  onPlay(callback): void;
-  onPause(callback): void;
-  onStop(callback): void;
-  onEnded(callback): void;
-  onTimeUpdate(callback): void;
-  onPrev(callback): void; // IOS only
-  onNext(callback): void; // IOS only
-  onError(callback): void;
-  onWaiting(callback): void;
+  onCanplay(callback: Function): void;
+  onPlay(callback: Function): void;
+  onPause(callback: Function): void;
+  onStop(callback: Function): void;
+  onEnded(callback: Function): void;
+  onTimeUpdate(callback: Function): void;
+  onPrev(callback: Function): void; // IOS only
+  onNext(callback: Function): void; // IOS only
+  onError(callback: Function): void;
+  onWaiting(callback: Function): void;
 }
 interface AudioContext {
   setSrc(src: string): void;
@@ -728,16 +728,16 @@ interface InnerAudioContext {
   stop(): void;
   seek(position: number): void;
   destroy(): void;
-  onCanplay(callback): void;
-  onPlay(callback): void;
-  onPause(callback): void;
-  onStop(callback): void;
-  onEnded(callback): void;
-  onTimeUpdate(callback): void;
-  onError(callback): void;
-  onWaiting(callback): void;
-  onSeeking(callback): void;
-  onSeeked(callback): void;
+  onCanplay(callback: Function): void;
+  onPlay(callback: Function): void;
+  onPause(callback: Function): void;
+  onStop(callback: Function): void;
+  onEnded(callback: Function): void;
+  onTimeUpdate(callback: Function): void;
+  onError(callback: Function): void;
+  onWaiting(callback: Function): void;
+  onSeeking(callback: Function): void;
+  onSeeked(callback: Function): void;
 }
 interface VideoContext {
   play(): void;
