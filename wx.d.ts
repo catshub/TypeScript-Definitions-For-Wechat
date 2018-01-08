@@ -2,6 +2,7 @@
  * wecaht type definitions
  */
 
+/* namespace wx */
 declare namespace wx {
   function request(object: {
     url: string,
@@ -627,7 +628,13 @@ declare namespace wx {
     complete?: Function
   })
   function onWifiConnected(callback: Function): void
+
+  /**
+   * WXML 节点信息
+   */
+  function createSelectorQuery(): SelectorQuery
 }
+/* namespace wx */
 
 type Method = 'GET' | 'POST' | 'PUT' | 'OPTIONS' | 'HEAD' | 'DELETE' | 'TRACE' | 'CONNECT';
 interface RequestTask {
@@ -869,4 +876,24 @@ interface SystemInfo {
   platform: string;
   fontSizeSetting: number;
   SDKVersion: string;
+}
+interface SelectorQuery {
+  in(that: object): SelectorQuery;
+  select(selector: string): NodesRef;
+  selectAll(selector: string): NodesRef;
+  selectViewport(): NodesRef;
+  exec(callback?: Function): void
+}
+interface NodesRef {
+  boundingClientRect(callback?: Function): SelectorQuery;
+  scrollOffset(callback?: Function): SelectorQuery;
+  fields(fields: Fields, callback?: Function): SelectorQuery;
+}
+interface Fields {
+  id?: boolean;
+  dataset?: boolean;
+  rect?: boolean;
+  size?: boolean;
+  scrollOffset?: boolean;
+  properties?: boolean;
 }
