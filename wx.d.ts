@@ -638,19 +638,19 @@ declare namespace wx {
    * 开放接口
    */
   // 登录
-  function login(ooo:{
+  function login(object: {
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void
-  function checkSession(ooo: {
+  function checkSession(object: {
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void
 
   // 授权
-  function authorize(ooo: {
+  function authorize(object: {
     scope: AuthorizeScope,
     success?: Function,
     fail?: Function,
@@ -658,7 +658,7 @@ declare namespace wx {
   }): void
 
   // 用户信息
-  function getUserInfo(ooo: {
+  function getUserInfo(object: {
     withCredentials?: boolean,
     lang?: string,
     success?: Function,
@@ -667,10 +667,10 @@ declare namespace wx {
   }): void
 
   // 微信支付
-  function requestPayment(ooo: {
+  function requestPayment(object: {
     timeStamp: string,
     nonceStr: string,
-    package:  string,
+    package: string,
     signType: string,
     paySign: string,
     success?: Function,
@@ -679,24 +679,24 @@ declare namespace wx {
   }): void
 
   // 转发
-  function showShareMenu(ooo: {
+  function showShareMenu(object: {
     withShareTicket?: boolean,
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void
-  function hideShareMenu(ooo: {
+  function hideShareMenu(object: {
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void
-  function updateShareMenu(ooo: {
+  function updateShareMenu(object: {
     withShareTicket?: boolean,
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void
-  function getShareInfo(ooo: {
+  function getShareInfo(object: {
     shareTicket: string,
     success?: Function,
     fail?: Function,
@@ -704,20 +704,20 @@ declare namespace wx {
   }): void
 
   // 收获地址
-  function chooseAddress(ooo: {
+  function chooseAddress(object: {
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void
 
   // 卡券
-  function addCard(ooo: {
+  function addCard(object: {
     cardList: CardAdd[],
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void
-  function openCard(ooo: {
+  function openCard(object: {
     cardList: CardOpen[],
     success?: Function,
     fail?: Function,
@@ -725,26 +725,26 @@ declare namespace wx {
   }): void
 
   // 设置
-  function openSetting(ooo?:{
+  function openSetting(object?: {
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void
-  function getSetting(ooo?:{
+  function getSetting(object?: {
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void
 
   // 微信运动
-  function getWeRunData(ooo?: {
+  function getWeRunData(object?: {
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void
 
   // 打开小程序
-  function navigateToMiniProgram(ooo: {
+  function navigateToMiniProgram(object: {
     appId: string,
     path?: string,
     extraData?: object,
@@ -753,7 +753,7 @@ declare namespace wx {
     fail?: Function,
     complete?: Function
   }): void
-  function navigateBackMiniProgram(ooo?: {
+  function navigateBackMiniProgram(object?: {
     extraData?: object,
     success?: Function,
     fail?: Function,
@@ -761,19 +761,19 @@ declare namespace wx {
   }): void
 
   // 获取发票抬头
-  function chooseInvoiceTitle(ooo?: {
+  function chooseInvoiceTitle(object?: {
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void
-  
+
   // 生物认证
-  function checkIsSupportSoterAuthentication(ooo?: {
+  function checkIsSupportSoterAuthentication(object?: {
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void
-  function startSoterAuthentication(ooo: {
+  function startSoterAuthentication(object: {
     requestAuthModes: string[],
     challenge: string,
     authContent?: string,
@@ -781,18 +781,18 @@ declare namespace wx {
     fail?: Function,
     complete?: Function
   }): void
-  function checkIsSoterEnrolledInDevice(ooo: {
+  function checkIsSoterEnrolledInDevice(object: {
     checkAuthMode: AuthMode,
     success?: Function,
     fail?: Function,
     complete?: Function
   }): void
-  
+
 
   /**
    * 第三方平台
    */
-  function getExtConfig(object:{
+  function getExtConfig(object: {
     success?: Function,
     fail?: Function,
     complete?: Function
