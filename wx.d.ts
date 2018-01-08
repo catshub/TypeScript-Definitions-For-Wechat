@@ -633,6 +633,16 @@ declare namespace wx {
    * WXML 节点信息
    */
   function createSelectorQuery(): SelectorQuery
+
+  /**
+   * 第三方平台
+   */
+  function getExtConfig(object:{
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  })
+  function getExtConfigSync(): object
 }
 /* namespace wx */
 
