@@ -635,6 +635,161 @@ declare namespace wx {
   function createSelectorQuery(): SelectorQuery
 
   /**
+   * 开放接口
+   */
+  // 登录
+  function login(ooo:{
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function checkSession(ooo: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 授权
+  function authorize(ooo: {
+    scope: AuthorizeScope,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 用户信息
+  function getUserInfo(ooo: {
+    withCredentials?: boolean,
+    lang?: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 微信支付
+  function requestPayment(ooo: {
+    timeStamp: string,
+    nonceStr: string,
+    package:  string,
+    signType: string,
+    paySign: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 转发
+  function showShareMenu(ooo: {
+    withShareTicket?: boolean,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function hideShareMenu(ooo: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function updateShareMenu(ooo: {
+    withShareTicket?: boolean,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function getShareInfo(ooo: {
+    shareTicket: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 收获地址
+  function chooseAddress(ooo: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 卡券
+  function addCard(ooo: {
+    cardList: CardAdd[],
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function openCard(ooo: {
+    cardList: CardOpen[],
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 设置
+  function openSetting(ooo?:{
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function getSetting(ooo?:{
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 微信运动
+  function getWeRunData(ooo?: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 打开小程序
+  function navigateToMiniProgram(ooo: {
+    appId: string,
+    path?: string,
+    extraData?: object,
+    envVersion?: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function navigateBackMiniProgram(ooo?: {
+    extraData?: object,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 获取发票抬头
+  function chooseInvoiceTitle(ooo?: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  
+  // 生物认证
+  function checkIsSupportSoterAuthentication(ooo?: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function startSoterAuthentication(ooo: {
+    requestAuthModes: string[],
+    challenge: string,
+    authContent?: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function checkIsSoterEnrolledInDevice(ooo: {
+    checkAuthMode: AuthMode,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  
+
+  /**
    * 第三方平台
    */
   function getExtConfig(object:{
@@ -652,11 +807,14 @@ declare namespace wx {
     success?: Function,
     fail?: Function,
     complete?: Function
-  })
+  }): void
 }
 /* namespace wx */
 
 type Method = 'GET' | 'POST' | 'PUT' | 'OPTIONS' | 'HEAD' | 'DELETE' | 'TRACE' | 'CONNECT';
+type AuthorizeScope = 'scope.userInfo' | 'scope.userLocation' | 'scope.address' | 'scope.invoiceTitle' | 'scope.werun' | 'scope.record' | 'scope.writePhotosAlbum' | 'scope.camera';
+type AuthMode = 'fingerPrint' | 'facial' | 'speech';
+
 interface RequestTask {
   abort: Function
 }
@@ -916,4 +1074,13 @@ interface Fields {
   size?: boolean;
   scrollOffset?: boolean;
   properties?: boolean;
+}
+interface Card {
+  cardId: string;
+}
+interface CardAdd extends Card {
+  cardExt: string;
+}
+interface CardOpen extends Card {
+  code: string;
 }
