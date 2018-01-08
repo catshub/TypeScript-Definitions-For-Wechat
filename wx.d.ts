@@ -294,6 +294,339 @@ declare namespace wx {
   }): void
   // 地图组件控制
   function createMapContext(mapId, that?: object): MapContext
+
+  /**
+   * device
+   */
+  // 系统信息
+  function getSystemInfo(object: {
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function getSystemInfoSync(): SystemInfo
+  function canIUse(param: string): boolean
+
+  // 网络状态
+  function getNetworkType(object: {
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function onNetworkStatusChange(callback: Function): void
+
+  // 加速度计
+  function onAccelerometerChange(callback: Function): void
+  function startAccelerometer(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function stopAccelerometer(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 罗盘
+  function onCompassChange(callback: Function): void
+  function startCompass(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function stopCompass(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 拨打电话
+  function makePhoneCall(object: {
+    phoneNumber: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 扫码
+  function scanCode(object: {
+    onlyFromCamera?: boolean,
+    scanType?: string[],
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  })
+
+  // 剪贴板
+  function setClipboardData(object: {
+    data: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function getClipboardData(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 蓝牙
+  function openBluetoothAdapter(object: {
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function closeBluetoothAdapter(object: {
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function getBluetoothAdapterState(object: {
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function onBluetoothAdapterStateChange(callback: Function): void
+  function startBluetoothDevicesDiscovery(object: {
+    services?: string[],
+    allowDuplicatesKey?: boolean,
+    interval?: number,
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function stopBluetoothDevicesDiscovery(object: {
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function getBluetoothDevices(object: {
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function getConnectedBluetoothDevices(object: {
+    services: string[],
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function onBluetoothDeviceFound(callback: Function): void
+  function createBLEConnection(object: {
+    deviceId: string,
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function closeBLEConnection(object: {
+    deviceId: string,
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function getBLEDeviceServices(object: {
+    deviceId: string,
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function getBLEDeviceCharacteristics(object: {
+    deviceId: string,
+    serviceId: string,
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function readBLECharacteristicValue(object: {
+    deviceId: string,
+    serviceId: string,
+    characteristicld: string,
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function writeBLECharacteristicValue(object: {
+    deviceId: string,
+    serviceId: string,
+    characteristicld: string,
+    value: ArrayBuffer,
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function notifyBLECharacteristicValueChange(object: {
+    deviceId: string,
+    serviceId: string,
+    characteristicld: string,
+    state: boolean,
+    success: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function onBLEConnectionStateChange(callback: Function): void
+  function onBLECharacteristicValueChange(callback: Function): void
+
+  // iBeacon
+  function startBeaconDiscovery(object: {
+    uuids: string[],
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function stopBeaconDiscovery(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function getBeacons(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function onBeaconUpdate(callback: Function): void
+  function onBeaconServiceChange(callback: Function): void
+
+  // 屏幕亮度
+  function setScreenBrightness(object: {
+    value: number,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function getScreenBrightness(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function setKeepScreenOn(object: {
+    keepScreenOn: boolean,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+
+  // 用户截屏事件
+  function onUserCaptureScreen(callback: Function): void
+
+  // 振动
+  function vibrateLong(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function vibrateShort(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // 手机联系人
+  function addPhoneContact(object: {
+    photoFilePath?: string,
+    nickName?: string,
+    lastName?: string,
+    middleName?: string,
+    firstName: string,
+    remark?: string,
+    mobilePhoneNumber?: string,
+    weChatNumber?: string,
+    addressCountry?: string,
+    addressState?: string,
+    addressCity?: string,
+    addressStreet?: string,
+    addressPostalCode?: string,
+    organization?: string,
+    title?: string,
+    workFaxNumber?: string,
+    workPhoneNumber?: string,
+    hostNumber?: string,
+    email?: string,
+    url?: string,
+    workAddressCountry?: string,
+    workAddressState?: string,
+    workAddressCity?: string,
+    workAddressStreet?: string,
+    workAddressPostalCode?: string,
+    homeFaxNumber?: string,
+    homePhoneNumber?: string,
+    homeAddressCountry?: string,
+    homeAddressState?: string,
+    homeAddressCity?: string,
+    homeAddressStreet?: string,
+    homeAddressPostalCode?: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // NFC
+  function getHCEState(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function startHCE(object: {
+    add_list: string[],
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function stopHCE(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function onHCEMessage(callback: Function): void
+  function sendHCEMessage(object: {
+    data: ArrayBuffer,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // WIFI
+  function startWifi(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function stopWifi(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function connectWifi(object: {
+    SSID: string,
+    BSSID: string,
+    password?: string,
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function getWifiList(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+  function onGetWifiList(callback: Function): void
+  function setWifiList(object: { // IOS only
+    wifiList: object[],
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  }): void
+
+  // presetWifiList 
+  // onEvaluateWifi
+
+  function getConnectedWifi(object: {
+    success?: Function,
+    fail?: Function,
+    complete?: Function
+  })
+  function onWifiConnected(callback: Function): void
 }
 
 type Method = 'GET' | 'POST' | 'PUT' | 'OPTIONS' | 'HEAD' | 'DELETE' | 'TRACE' | 'CONNECT';
@@ -521,4 +854,19 @@ interface MapContext {
     fail?: Function,
     complete?: Function
   }): void
+}
+interface SystemInfo {
+  brand: string;
+  model: string;
+  pixelRatio: number;
+  screenWidth: number;
+  screenHeight: number;
+  windowWidth: number;
+  windowHeight: number;
+  language: string;
+  version: string;
+  system: string;
+  platform: string;
+  fontSizeSetting: number;
+  SDKVersion: string;
 }
