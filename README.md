@@ -1,7 +1,6 @@
 ## TypeScript-Definitions-for-Wechat
 
-🐵 features : a little more complete type definitions than wechat dev tool  
-(used in vscode)
+🐵 features : more completed type definitions than official wechat dev tool  
 ## API Contents (V1.7.*)
 1. 网络✔️  (2017.01.05)
 2. 媒体✔️  (2017.01.05)
