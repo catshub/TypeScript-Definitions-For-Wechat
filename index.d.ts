@@ -1,6 +1,13 @@
+// Type definitions for Wechat 1.7
+// Project: https://github.com/Xiongqi-XQ/TypeScript-Definitions-For-Wechat
+// Definitions by: xiongqi <https://github.com/xiongqi-xq>
+
 /**
- * wecaht type definitions
+ * Wechat type definitions
  */
+
+export = wx;
+export as namespace wx;
 
 /* namespace wx */
 declare namespace wx {
@@ -619,7 +626,7 @@ declare namespace wx {
     complete?: Function
   }): void
 
-  // presetWifiList 
+  // presetWifiList
   // onEvaluateWifi
 
   function getConnectedWifi(object: {
