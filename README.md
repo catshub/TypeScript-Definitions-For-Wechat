@@ -1,6 +1,10 @@
 # TypeScript-Definitions-for-Wechat (typed-wechat)
 
-🐵 features : more completed type definitions than official wechat dev tool.  
+[![npm package](https://img.shields.io/npm/v/typed-wechat.svg)](https://www.npmjs.org/package/typed-wechat)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Xiongqi-XQ/TypeScript-Definitions-For-Wechat/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/xiongqi-xq/TypeScript-Definitions-For-Wechat.svg)](https://github.com/Xiongqi-XQ/TypeScript-Definitions-For-Wechat/issues)
+
+🐵 Features : more completed type definitions than official wechat dev tool.  
 
 ## Install
 ```bash
