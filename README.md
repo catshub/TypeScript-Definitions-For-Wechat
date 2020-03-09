@@ -1,6 +1,6 @@
 # TypeScript-Definitions-for-Wechat (typed-wechat)
 [![npm package](https://img.shields.io/npm/v/typed-wechat.svg?style=flat-square)](https://www.npmjs.org/package/typed-wechat)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/catshub/TypeScript-Definitions-For-Wechat/blob/master/LICENSE)
+<!-- [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/catshub/TypeScript-Definitions-For-Wechat/blob/master/LICENSE) -->
 
 🐵 Features : more completed type definitions than official wechat dev tool.  
 
